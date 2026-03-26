@@ -1,6 +1,6 @@
 ﻿"use client";
 
-import { useEffect, useMemo } from "react";
+import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 
 import { RequestDetail } from "@/components/requests/request-detail";
@@ -9,19 +9,30 @@ import { useAppState } from "@/components/providers/app-provider";
 export default function StaffRequestCardPage() {
   const router = useRouter();
   const { currentUser, getRequest } = useAppState();
-  const id = useMemo(() => (typeof window === "undefined" ? "" : new URLSearchParams(window.location.search).get("id") ?? ""), []);
-  const request = getRequest(id);
+  const [requestId, setRequestId] = useState("");
 
   useEffect(() => {
-    if (currentUser && currentUser.role !== "ADMIN") {
-      router.replace("/dashboard");
+    setRequestId(new URLSearchParams(window.location.search).get("id") ?? "");
+  }, []);
+
+  const request = getRequest(requestId);
+
+  useEffect(() => {
+    if (!currentUser || !requestId) {
+      return;
     }
-    if (currentUser?.role === "ADMIN" && !request) {
+
+    if (currentUser.role !== "ADMIN") {
+      router.replace("/dashboard");
+      return;
+    }
+
+    if (!request) {
       router.replace("/staff/requests");
     }
-  }, [currentUser, request, router]);
+  }, [currentUser, request, requestId, router]);
 
-  if (!currentUser || currentUser.role !== "ADMIN" || !request) {
+  if (!currentUser || currentUser.role !== "ADMIN" || !requestId || !request) {
     return null;
   }
 
