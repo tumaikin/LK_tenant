@@ -34,7 +34,7 @@ export default function DashboardPage() {
             Новая заявка
           </Link>
           {currentUser.role === UserRole.ADMIN ? (
-            <Link className="ghost-button" href="/staff/email-import">
+            <Link className="button-link" href="/staff/email-import">
               Импорт из email
             </Link>
           ) : null}
