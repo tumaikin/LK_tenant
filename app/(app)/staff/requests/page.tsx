@@ -1,6 +1,5 @@
 ﻿"use client";
 
-import Link from "next/link";
 import { useEffect } from "react";
 import { useRouter } from "next/navigation";
 
@@ -32,12 +31,12 @@ export default function StaffRequestsPage() {
         description="Очередь обращений для админа и ресепшн: создание от имени арендатора, назначение и контроль статусов."
         actions={
           <>
-            <Link className="button-link" href="/requests/new">
+            <button className="button-link" type="button" onClick={() => router.push("/requests/new")}>
               Создать от имени арендатора
-            </Link>
-            <Link className="ghost-button" href="/staff/email-import">
+            </button>
+            <button className="ghost-button" type="button" onClick={() => router.push("/staff/email-import")}>
               Импорт из email
-            </Link>
+            </button>
           </>
         }
       />

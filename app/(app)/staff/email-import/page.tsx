@@ -39,9 +39,9 @@ export default function EmailImportPage() {
         title="Сценарий обращения из email"
         description="Показывает, как входящее письмо может превратиться в заявку без реальной интеграции с почтой."
         actions={
-          <Link className="ghost-button" href="/staff/requests">
+          <button className="ghost-button" type="button" onClick={() => router.push("/staff/requests")}>
             К очереди заявок
-          </Link>
+          </button>
         }
       />
       <section className="card-grid">
