@@ -14,6 +14,18 @@
 - mock-сценарий обращения из email
 - разделы: договоры, платежи, уведомления, допуслуги
 
+## Технологический стек
+
+- Next.js 15
+- React 19
+- TypeScript
+- CSS на `app/globals.css` без внешнего UI-kit
+- клиентский state/store на React Context
+- mock-данные в JSON
+- хранение пользовательской сессии и изменений в `localStorage`
+- статический export через `next build`
+- GitHub Actions для деплоя на GitHub Pages
+
 ## Технология публикации
 
 Проект переведён в полностью статический режим:
