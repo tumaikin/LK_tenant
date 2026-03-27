@@ -1,6 +1,9 @@
 ﻿"use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
+import { useRouter } from "next/navigation";
+
+import { useAppState } from "@/components/providers/app-provider";
 
 type RoomStatus = "occupied" | "vacant" | "service" | "expiring";
 
@@ -41,8 +44,16 @@ const statusMeta: Record<RoomStatus, { label: string; color: string; fill: strin
 };
 
 export default function FloorPlanPage() {
+  const router = useRouter();
+  const { currentUser } = useAppState();
   const [filter, setFilter] = useState<RoomStatus | "all">("all");
   const [selectedId, setSelectedId] = useState<string>(rooms[0].id);
+
+  useEffect(() => {
+    if (currentUser && currentUser.role !== "ADMIN") {
+      router.replace("/dashboard");
+    }
+  }, [currentUser, router]);
 
   const visibleRooms = useMemo(
     () => rooms.filter((room) => (filter === "all" ? true : room.status === filter)),
@@ -51,6 +62,10 @@ export default function FloorPlanPage() {
   const selectedRoom = rooms.find((room) => room.id === selectedId) ?? rooms[0];
   const occupiedCount = rooms.filter((room) => room.status === "occupied").length;
   const vacantCount = rooms.filter((room) => room.status === "vacant").length;
+
+  if (!currentUser || currentUser.role !== "ADMIN") {
+    return null;
+  }
 
   return (
     <section className="floor-plan-page">

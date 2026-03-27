@@ -1066,3 +1066,125 @@ tr:hover td {
     grid-template-columns: 1fr;
   }
 }
+
+.crm-page {
+  display: grid;
+  gap: 16px;
+}
+
+.crm-stats .stat-card strong {
+  font-size: 30px;
+}
+
+.crm-board {
+  padding: 0;
+  overflow: hidden;
+}
+
+.crm-board-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--border);
+  background: linear-gradient(180deg, #fbfdff 0%, #f1f6fb 100%);
+}
+
+.crm-board-head strong {
+  color: #244567;
+}
+
+.crm-board-head span {
+  color: var(--muted);
+}
+
+.crm-columns {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(240px, 1fr));
+  gap: 0;
+  overflow-x: auto;
+  background: #f3f7fb;
+}
+
+.crm-column {
+  min-height: 100%;
+  border-right: 1px solid #d7e2ee;
+  background: linear-gradient(180deg, #f7fbff 0%, #eff5fb 100%);
+}
+
+.crm-column:last-child {
+  border-right: 0;
+}
+
+.crm-column-head {
+  display: grid;
+  gap: 4px;
+  padding: 12px 14px;
+  border-top: 4px solid transparent;
+  border-bottom: 1px solid #d7e2ee;
+  background: rgba(255, 255, 255, 0.7);
+}
+
+.crm-column-head strong {
+  color: #244567;
+}
+
+.crm-column-head span,
+.crm-column-head small {
+  color: var(--muted);
+}
+
+.crm-card-list {
+  display: grid;
+  gap: 12px;
+  padding: 12px;
+}
+
+.crm-card {
+  display: grid;
+  gap: 10px;
+  padding: 14px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: #ffffff;
+  box-shadow: 0 8px 18px rgba(27, 78, 131, 0.06);
+}
+
+.crm-card-head {
+  display: grid;
+  gap: 4px;
+}
+
+.crm-card-head strong {
+  color: #173b5e;
+}
+
+.crm-card-head span,
+.crm-card p,
+.crm-card-footer,
+.crm-card-meta {
+  color: var(--text-soft);
+}
+
+.crm-card-meta {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  font-size: 12px;
+}
+
+.crm-card p {
+  margin: 0;
+  font-size: 13px;
+}
+
+.crm-card-footer {
+  font-size: 12px;
+  font-weight: 600;
+}
+
+@media (max-width: 1120px) {
+  .crm-columns {
+    grid-template-columns: repeat(6, minmax(220px, 1fr));
+  }
+}
