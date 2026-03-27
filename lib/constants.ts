@@ -39,6 +39,7 @@ export const APP_NAV = [
   { href: "/dashboard", label: "Дашборд" },
   { href: "/requests", label: "Обращения" },
   { href: "/contracts", label: "Договоры" },
+  { href: "/floor-plan", label: "Схема этажа" },
   { href: "/billing", label: "Платежи" },
   { href: "/notifications", label: "Уведомления" },
   { href: "/services", label: "Допуслуги" }

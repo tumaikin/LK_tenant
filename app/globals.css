@@ -881,3 +881,188 @@ tr:hover td {
     grid-template-columns: 1fr;
   }
 }
+
+.floor-plan-page {
+  display: grid;
+  gap: 16px;
+}
+
+.floor-plan-stats .stat-card strong {
+  font-size: 32px;
+}
+
+.floor-plan-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(320px, 0.75fr);
+  gap: 16px;
+}
+
+.floor-plan-board,
+.floor-room-card {
+  padding: 18px;
+}
+
+.floor-plan-toolbar {
+  display: grid;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.floor-plan-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.floor-filter {
+  min-height: 36px;
+  padding: 0 14px;
+  border-radius: 999px;
+  border: 1px solid var(--border-strong);
+  background: linear-gradient(180deg, #ffffff 0%, #f4f8fc 100%);
+  color: var(--text-soft);
+  box-shadow: none;
+}
+
+.floor-filter.active {
+  border-color: #9dc1f8;
+  background: var(--primary-soft);
+  color: var(--primary-deep);
+}
+
+.floor-filter-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  display: inline-block;
+  margin-right: 8px;
+}
+
+.floor-plan-caption {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.floor-plan-canvas {
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  background: linear-gradient(180deg, #fafdff 0%, #eef5fb 100%);
+  padding: 16px;
+}
+
+.floor-svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.floor-outline {
+  fill: #ffffff;
+  stroke: #cddbed;
+  stroke-width: 2;
+}
+
+.floor-corridor {
+  fill: #f4f8fc;
+  stroke: #d8e4f0;
+  stroke-width: 2;
+  stroke-dasharray: 6 6;
+}
+
+.floor-corridor-text {
+  fill: #6f8499;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.floor-room-group {
+  cursor: pointer;
+}
+
+.floor-room {
+  stroke-width: 2;
+  transition: transform 0.15s ease, filter 0.15s ease;
+}
+
+.floor-room-group:hover .floor-room,
+.floor-room.selected {
+  filter: drop-shadow(0 8px 14px rgba(22, 71, 132, 0.14));
+}
+
+.floor-room-code,
+.floor-room-title,
+.floor-room-meta {
+  fill: #173d63;
+  pointer-events: none;
+}
+
+.floor-room-code {
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.floor-room-title {
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.floor-room-meta {
+  font-size: 12px;
+}
+
+.floor-room-card {
+  display: grid;
+  gap: 16px;
+  align-content: start;
+}
+
+.floor-room-card-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.floor-room-card-head h3 {
+  margin: 0;
+  color: #173b5e;
+}
+
+.floor-room-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.floor-room-note {
+  margin: 0;
+}
+
+.floor-mini-list {
+  padding: 14px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: linear-gradient(180deg, #fbfdff 0%, #f4f8fc 100%);
+}
+
+.floor-mini-list strong {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.floor-mini-list ul {
+  margin: 0;
+  padding-left: 18px;
+  color: var(--text-soft);
+}
+
+.floor-mini-list li + li {
+  margin-top: 8px;
+}
+
+@media (max-width: 1120px) {
+  .floor-plan-layout,
+  .floor-room-grid {
+    grid-template-columns: 1fr;
+  }
+}
